@@ -36,17 +36,18 @@
   <body>
     <nav class="site-header sticky-top py-1">
   <div class="container d-flex flex-column flex-md-row justify-content-between">
-    <a class="py-2" href="#">
+    <a class="py-2" href="{% url 'home' %}">
 <img src="{% static 'logo.png' %}" class="d-inline-block align-top" alt="" height="30" width="30">
     </a>
-    <a class="py-2 d-none d-md-inline-block" href="#">ProductHunt</a>
+    <a class="py-2 d-none d-md-inline-block" href="{% url 'home' %}">ProductHunt</a>
     <a class="py-2 d-none d-md-inline-block" href="#"></a>
     <a class="py-2 d-none d-md-inline-block" href="#"></a>
     <a class="py-2 d-none d-md-inline-block" href="#"></a>
     <a class="py-2 d-none d-md-inline-block" href="#"></a>
 
     {% if user.is_authenticated %}
-
+    <a href="{% url 'create' %}" class="nav item nav-link" ><b>+ Create</b>
+    </a>
     <a class="nav-item nav-link" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
     <form id="logout" method="POST" action="{% url 'logout'%}">
         {% csrf_token %}
